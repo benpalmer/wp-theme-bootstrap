@@ -1,0 +1,59 @@
+/* Grid */
+
+.container {
+  width:960px;
+  margin:0 auto;
+  overflow:hidden;
+  position:relative;
+  &.test {
+    .row {
+      div {
+        min-height:20px;
+        margin-top: 20px;
+        &:nth-child(odd) {
+          background-color:#ccc;
+        }
+        &:nth-child(even) {
+          background-color:#ddd;
+        }
+      }
+    }
+  }
+}
+
+img {
+  max-width:100%;
+}
+
+.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
+
+}
+
+.span1 { .make-column(1); }
+.span2 { .make-column(2); }
+.span3 { .make-column(3); }
+.span4 { .make-column(4); }
+.span5 { .make-column(5); }
+.span6 { .make-column(6); }
+.span7 { .make-column(7); }
+.span8 { .make-column(8); }
+.span9 { .make-column(9); }
+.span10 { .make-column(10); }
+.span11 { .make-column(11); }
+.span12 { .make-column(12); }
+
+.offset1 { .make-column-offset(1); }
+.offset2 { .make-column-offset(2); }
+.offset3 { .make-column-offset(3); }
+.offset4 { .make-column-offset(4); }
+.offset5 { .make-column-offset(5); }
+.offset6 { .make-column-offset(6); }
+.offset7 { .make-column-offset(7); }
+.offset8 { .make-column-offset(8); }
+.offset9 { .make-column-offset(9); }
+.offset10 { .make-column-offset(10); }
+.offset11 { .make-column-offset(11); }
+
+.row {
+  .make-row();
+}
