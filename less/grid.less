@@ -1,59 +1,49 @@
-/* Grid */
+@containerWidth : 960;
+@marginWidth : 10;
+@columns : 12;
 
-.container {
-  width:960px;
-  margin:0 auto;
-  overflow:hidden;
-  position:relative;
-  &.test {
+@media screen and (min-width: 0px) {
+    
     .row {
-      div {
-        min-height:20px;
-        margin-top: 20px;
-        &:nth-child(odd) {
-          background-color:#ccc;
-        }
-        &:nth-child(even) {
-          background-color:#ddd;
-        }
-      }
+      margin-left:-0px;
     }
-  }
-}
+    
+    .row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+    
+    .span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
+      border-left-width:0px;
+      padding:0 0px;
+      border:0px solid rgba(0,0,0,0);
+      float:left;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      box-sizing:border-box;
+      -moz-background-clip:padding-box !important;
+      -webkit-background-clip:padding-box !important;
+      background-clip:padding-box !important;
+      position:relative;
+      margin:0 100%*(@marginWidth/@containerWidth);
+    }
 
-img {
-  max-width:100%;
-}
+    .grid-loop (@index) when (@index > 0) {
+        @columnWidth : ( (@containerWidth/@columns) * @index ) - (2 * @marginWidth);
+        .span@{index} {
+            width:100%*( ( @columnWidth ) / @containerWidth);
+        }
+        .offset@{index} {
+            margin-left: 100%*( ( @columnWidth + ( @marginWidth * 3 ) ) / @containerWidth );
+        }
+        .grid-loop(@index - 1);
+    }
 
-.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
-
-}
-
-.span1 { .make-column(1); }
-.span2 { .make-column(2); }
-.span3 { .make-column(3); }
-.span4 { .make-column(4); }
-.span5 { .make-column(5); }
-.span6 { .make-column(6); }
-.span7 { .make-column(7); }
-.span8 { .make-column(8); }
-.span9 { .make-column(9); }
-.span10 { .make-column(10); }
-.span11 { .make-column(11); }
-.span12 { .make-column(12); }
-
-.offset1 { .make-column-offset(1); }
-.offset2 { .make-column-offset(2); }
-.offset3 { .make-column-offset(3); }
-.offset4 { .make-column-offset(4); }
-.offset5 { .make-column-offset(5); }
-.offset6 { .make-column-offset(6); }
-.offset7 { .make-column-offset(7); }
-.offset8 { .make-column-offset(8); }
-.offset9 { .make-column-offset(9); }
-.offset10 { .make-column-offset(10); }
-.offset11 { .make-column-offset(11); }
-
-.row {
-  .make-row();
+    .grid-loop(0) {}
+    .grid-loop(@columns);
+    
 }
