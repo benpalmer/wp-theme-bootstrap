@@ -1,20 +1,9 @@
 <?php
 
-if ( function_exists( 'add_theme_support' ) ) {
-	add_theme_support( 'post-thumbnails' );
-}
-
 if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'square', 220, 200, true );
 }
 
-if ( function_exists( 'register_nav_menus' ) ) {
-  register_nav_menus(
-    array(
-      'main_menu' => 'Main Menu'
-    )
-  );
-}
 
 /*
   General Housekeeping
@@ -37,30 +26,6 @@ function my_remove_recent_comments_style() {
 
 add_filter( 'use_default_gallery_style', '__return_false' );
 
-// Add excerpts to pages
-
-add_action( 'init', 'my_add_excerpts_to_pages' );
-function my_add_excerpts_to_pages() {
-     add_post_type_support( 'page', 'excerpt' );
-}
-
-/*
-  Add Custom Sizes to Media Upload
-  **************************************************************/
-
-function my_insert_custom_image_sizes( $sizes ) {
-  global $_wp_additional_image_sizes;
-  if ( empty($_wp_additional_image_sizes) )
-    return $sizes;
-
-  foreach ( $_wp_additional_image_sizes as $id => $data ) {
-    if ( !isset($sizes[$id]) )
-      $sizes[$id] = ucfirst( str_replace( '-', ' ', $id ) );
-  }
-
-  return $sizes;
-}
-add_filter( 'image_size_names_choose', 'my_insert_custom_image_sizes' );
 
 /*
   Enqueue Scripts and Styles
