@@ -13,12 +13,16 @@ module.exports = function(grunt) {
                 files: ['less/**/*.less'],
                 tasks: ['less'],
                 options: {
-                    nospawn: true
+                    nospawn: true,
+                    livereload: true
                 }
             },
             js: {
                 files: '<%= jshint.all %>',
-                tasks: ['jshint', 'uglify']
+                tasks: ['jshint', 'uglify'],
+                options: {
+                    livereload: true,
+                }
             }
         },
 
@@ -28,7 +32,7 @@ module.exports = function(grunt) {
             options: {
                 compress: true,
                 yuicompress: false,
-                optimization: 2
+                optimization: 3
             },
             files: {
               // target.css file: source.less file
@@ -53,8 +57,7 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.author %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
-                mangle: true,
-                dropConsole: true
+                mangle: true
             },
             dist: {
                 options: {
