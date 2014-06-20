@@ -30,8 +30,7 @@ module.exports = function(grunt) {
         less: {
           development: {
             options: {
-                compress: true,
-                yuicompress: false,
+                cleancss: true,
                 optimization: 3
             },
             files: {
@@ -66,7 +65,11 @@ module.exports = function(grunt) {
                 files: {
                     'js/main.min.js': [
                         'js/source/main.js',
-                    ]
+                    ],
+                    'js/plugins.min.js': [
+                        'js/source/plugins.js',
+                        'js/plugins/*.js',
+                    ],
                 }
             }
         }

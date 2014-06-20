@@ -105,12 +105,9 @@ function theme_js() {
 
   global $wp_scripts;
 
-  wp_enqueue_script('theme_typekit', '//use.typekit.net/xpf8hnl.js',false,null,false);
-  wp_enqueue_script('cycle2', get_bloginfo('template_directory')."/js/vendor/jquery.cycle2.js", array('jquery'), '2.1.5', true);
-  //wp_enqueue_script('cookies', get_bloginfo('template_directory')."/js/vendor/jquery.cookie.js", array('jquery'), '1.3.1', true);
-  //wp_enqueue_script('cookiecuttr', get_bloginfo('template_directory')."/js/vendor/jquery.cookiecuttr.js", array('jquery','cookies'), '1.0', true);
-  //wp_enqueue_script('maps', "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true", false, '3.0', true);
-  wp_enqueue_script('main', get_bloginfo('template_directory')."/js/main.min.js", array('jquery'), '1.1', true);
+  wp_enqueue_script('theme_typekit', '//use.typekit.net/xxxxxx.js',false,null,false);
+  wp_enqueue_script('plugins', get_bloginfo('template_directory')."/js/vendor/plugins.min.js", array('jquery'), '0.1', true);
+  wp_enqueue_script('main', get_bloginfo('template_directory')."/js/main.min.js", array('jquery'), '0.', true);
   wp_enqueue_script('modernizr', get_bloginfo('template_directory')."/js/vendor/modernizr.js", true, '2.7.2', false);
   
   wp_register_script( 'html5_shiv', 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', '', null, false );
